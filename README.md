@@ -1,4 +1,4 @@
-# Disney_wait_times
+# Disney Wait Times: Predictive Modeling
 
 ## Project Overview
 Disney World is the happiest place on earth, but waiting in long lines is a pain.  Wait times for Disney World rides can either make or break attendees' plans for their days.  If there was a way to predict historical wait times, parkgoers could plan a trip to Disney and potentially use their time more efficiently.  This analysis will utilize multiple datasets containing estimated wait times for eight of the most popular rides at Disney's Magic Kingdom, as well as an accompanying metadata dataset that contains the feature set for analysis.  
