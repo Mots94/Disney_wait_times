@@ -8,37 +8,28 @@ The data collected for this project was sourced from https://touringplans.com/wa
 
 ## Citations
 "7_dwarfs_train.csv", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, https://www.touringplans.com/
-
     walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
 
 "big_thunder_mtn.csv", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, https://www.touringplans.com/
-
     walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
 
 "haunted_mansion.csv", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, https://www.touringplans.com/
-
     walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
 
 "it_s_a_small_world.csv", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, https://www.touringplans.com/
-
     walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
 
 "peter_pan_s_flight.csv", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, https://www.touringplans.com/
-
     walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
 
 "pirates_of_caribbean.csv", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, https://www.touringplans.com/
-
     walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
 
 "space_mountain", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, https://www.touringplans.com/
-
     walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
 
 "splash_mountain.csv", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, https://www.touringplans.com/
-
     walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
 
 "metadata.csv", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, https://www.touringplans.com/
-
     walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
