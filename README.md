@@ -6,10 +6,13 @@ Disney World is the happiest place on earth, but waiting in long lines is a pain
 * Can Magic Kingdom ride wait times be predicted by weather, holidays, or schools in session?
 * If predictions can be made, which times thoughout the year are best to visit Magic Kingdom to experience lower ride wait times?
 
-
-
 ## Data source
 The data collected for this project was sourced from https://touringplans.com/walt-disney-world/crowd-calendar#DataSets. Ride wait time datasets were stored in CSV files for each ride, and column names were the same in these files.  The four columns included were 'date', 'datetime', 'SPOSTMIN', and 'SACTMIN.'  The columns 'SPOSTMIN' and 'SACTMIN' represent the standby posted wait time and the actual wait time respectively.  Before any data cleaning was done on these files, a column called 'ride_name' was added to represent the ride's name.  Since each file has the same format, the purpose of this column was as an identifier for the wait time rows after all files were aggregated together for cleaning.
+
+## Exploratory data analysis
+
+
+## Machine learning model
 
 ## Citations
 "7_dwarfs_train.csv", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, 
