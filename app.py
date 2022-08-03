@@ -18,8 +18,12 @@ collection = db.waitTimes
 # mongo = PyMongo(app)
 
 @app.route("/")
-def index():
+def home():
     return render_template("home.html")
+
+@app.route("/landing")
+def data_disp():
+    return render_template("landing_page.html")
 
 # @app.route("/scrape")
 # def scrape():
