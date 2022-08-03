@@ -13,16 +13,16 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    disneymeta = mongo.db.disneyData.rideTimes.find_one()
-    return render_template("index.html", meta=disneymeta)
+    disneydata = mongo.db.disneyData.rideTimes.find_one()
+    return render_template("index.html", disneydata=disneydata)
 
-@app.route("/scrape")
-def scrape():
-    data=mongo.db.disneyData.rideTimes
-    # disney_data = scraping.scrape_all()
-    disney_data = {"name": "Magic Kingdom", "ride": "Tropic Thunder"}
-    data.update_one({},{"$set":disney_data},upsert=True)
-    return redirect('/',code=302)
+# @app.route("/scrape")
+# def scrape():
+#     data=mongo.db.rideTimes
+#     # disney_data = scraping.scrape_all()
+#     disney_data = {"name": "Magic Kingdom", "ride": "Tropic Thunder"}
+#     data.update_one({},{"$set":disney_data},upsert=True)
+#     return redirect('/',code=302)
 
 if __name__ == "__main__":
    app.run()
