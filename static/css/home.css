@@ -1,0 +1,13 @@
+button {
+    margin: 0;
+    position: absolute;
+    top: 350px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.lrg-btn {
+    width: 700px;
+    height: 150px;
+}
