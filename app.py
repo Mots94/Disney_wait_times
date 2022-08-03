@@ -14,7 +14,7 @@ mongo = PyMongo(app)
 @app.route("/")
 def index():
     disneymeta = mongo.db.disneyData.rideTimes.find_one()
-    return render_template("index.html",meta=disneymeta)
+    return render_template("index.html", meta=disneymeta)
 
 @app.route("/scrape")
 def scrape():
