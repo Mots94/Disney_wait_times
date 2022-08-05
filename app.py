@@ -9,20 +9,9 @@ import os
 app = Flask(__name__)
 
 # Use flask_pymongo to set up mongo connection
-
-mongo = PyMongo(app)
-
 app.config['MONGO_URI'] =  os.environ.get('MONGO_URI')
 
-def get_db():
-    db =getattr(g, "_database", None)
-
-    if db is None:
-        db = g._database = PyMongo(mongo).db
-
-    return db
-
-db = LocalProxy(get_db)
+mongo = PyMongo(app)
 
 @app.route("/")
 def home():
