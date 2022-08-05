@@ -9,8 +9,10 @@ import os
 app = Flask(__name__)
 
 # Use flask_pymongo to set up mongo connection
-app.config["MONGO_URI"] = f"mongodb+srv://purpleteam:{os.environ.get('MONGO_PASSWORD', 'password')}@disney-data-cluster.guziap7.mongodb.net/?retryWrites=true&w=majority"
+
 mongo = PyMongo(app)
+
+app.config['MONGO_URI'] =  os.environ.get('MONGO_URI')
 
 def get_db():
     db =getattr(g, "_database", None)
