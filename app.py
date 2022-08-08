@@ -26,17 +26,18 @@ def home():
 def data_disp():
     return render_template("landing_page.html")
 
-@app.route("/pull", methods=["GET"])
-def scrape():
-    begin_date = request.args.get("begin_date")
-    b_filter = begin_date.replace("-", "/")
-    end_date = request.args.get("end_date")
-    e_filter = end_date.replace("-", "/")
-    data=mongo.disneyData.rideTimes.find({"date": {"$gte": b_filter, "$lte": e_filter}}, {"_id":0})
+@app.route("/landing/pull", methods=["GET"])
+def get_data():
+    # begin_date = request.args.get("begin_date")
+    # b_filter = begin_date.replace("-", "/")
+    # end_date = request.args.get("end_date")
+    # e_filter = end_date.replace("-", "/")
+    data=mongo.disneyData.rideTimes.find_one({"date": "1/1/2015", "ride_name": "haunted_mansion"}, {"_id":0})
     
     # print(data)
     # print([ride for ride in data])
-    return jsonify([ride for ride in data])
+    # return jsonify([ride for ride in data])
+    return jsonify(data)
 
 if __name__ == "__main__":
    app.run(port=8000, debug=True)
