@@ -8,7 +8,7 @@
   <title>Time of Magic: Evaluating the Wait Time Factors for the Magic Kingdom</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- Custom styles for this template -->
-  <link rel ="stylesheet" href="static/css/app.css">
+  <!-- <link rel ="stylesheet" href="static/css/app.css"> -->
 </head>
 
 <body >
@@ -61,7 +61,8 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="{{url_for('static',filename='js/charts.js')}}"></script>
+  <script src="{{url_for('static',filename='js/build_charts.js')}}"></script>
+  <script src="{{url_for('static',filename='merged_data.json')}}"></script>
 
 </body>
 
