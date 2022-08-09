@@ -4,20 +4,25 @@ function init() {
   
     // Use the list of names to populate the select options
     d3.json("static/merged_data.json").then((data) => {
-      let dataNames = data.date;
+      
+      Object.keys(data).forEach(function(key) {
+        
+      })
+
+      console.log(dates)
   
-      dataNames.forEach((entry) => {
-        selector
-          .append("option")
-          .text(entry)
-          .property("value", entry);
+//       dataNames.forEach((entry) => {
+//         selector
+//           .append("option")
+//           .text(entry)
+//           .property("value", entry);
       });
   
-      // Use the first date from the list to build the initial plots
-      var firstDate = dataNames[0];
-      buildCharts(firstDate);
-      buildMetadata(firstDate);
-    });
+//       // Use the first date from the list to build the initial plots
+//       var firstDate = dataNames[0];
+//       buildCharts(firstDate);
+//       buildMetadata(firstDate);
+//     });
 };
 
 init();
