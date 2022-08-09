@@ -29,7 +29,9 @@ for file in all_files:
 df = pd.concat(aggregated_files, axis=0)
 df.to_csv(export_path, sep=',', index=True)
 ```
-My outlier values had to be dropped within this loop to avoid calculating mean values with them.  The `df.groupby()` operation was used to group the DataFrame by date and ride_name before calculating the mean.  An empty list had each aggregated DataFrame appended to it, and the files could then be concatenated and exported as a single CSV file.  This CSV was imported into a Pandas DataFrame for further analysis.
+My outlier values had to be dropped within this loop to avoid calculating mean values with them.  The `df.groupby()` operation was used to group the DataFrame by date and ride_name before calculating the mean.  An empty list had each aggregated DataFrame appended to it, and the files could then be concatenated and exported as a single CSV file.  This CSV was imported into a Pandas DataFrame for further analysis.  As expected, the distribution of actual wait times for this dataset was not normally distributed, as seen below.
+
+![dist](https://github.com/Mots94/Disney_wait_times/blob/EDA_wait_times/Images/wait_time_dist_means.PNG)
 
 ## Machine learning model
 
