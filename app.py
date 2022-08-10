@@ -40,15 +40,15 @@ def landing():
 
 
 
-@app.route("/static")
-def pull_data():
-    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
-    json_url = os.path.join(SITE_ROOT, "static/js", "merged_data.json")
-    data = json.load(open(json_url))
+# @app.route("/static")
+# def pull_data():
+#     SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+#     json_url = os.path.join(SITE_ROOT, "static/js", "merged_data.json")
+#     data = json.load(open(json_url))
 
-    return render_template("landing_page.html", data=data)
+#     return render_template("landing_page.html", data=data)
 
-@app.route("/movie_json")
+@app.route("/disney_json")
 def get_data():
     SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
     json_url = os.path.join(SITE_ROOT, "static/js", "merged_data.json")

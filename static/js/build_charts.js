@@ -1,15 +1,15 @@
 function init() {
     // Grab a reference to the dropdown select element
-    let selector = d3.select("#selDataset");
+    let input = d3.select("#dateSelect");
   
     // Use the list of names to populate the select options
-    d3.json("http://localhost:8000/movie_json").then((data) => {
-      
-      Object.keys(data).forEach(function(key) {
-
-      })
+    d3.json("http://localhost:8000/disney_json").then((data) => {
 
       console.log(data)
+
+      dates = Object.keys().forEach()
+
+      console.log(dates)
   
 //       dataNames.forEach((entry) => {
 //         selector
