@@ -3,13 +3,13 @@ function init() {
     let selector = d3.select("#selDataset");
   
     // Use the list of names to populate the select options
-    d3.json("static/merged_data.json").then((data) => {
+    d3.json("http://localhost:8000/movie_json").then((data) => {
       
       Object.keys(data).forEach(function(key) {
-        
+
       })
 
-      console.log(dates)
+      console.log(data)
   
 //       dataNames.forEach((entry) => {
 //         selector

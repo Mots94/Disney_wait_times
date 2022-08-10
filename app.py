@@ -1,24 +1,21 @@
 # Include dependencies
 from distutils.log import debug
 from fileinput import filename
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, url_for, json
 import pymongo
+from flask_pymongo import PyMongo
 import os
-import json
-
-
-# import scraping
-
 
 # setup Flas
 app = Flask(__name__, static_folder='static')
 
 # Use flask_pymongo to set up mongo connection
-app.config['MONGO_URI'] =  os.environ.get('MONGO_URI')
+# app.config['MONGO_URI'] =  os.environ.get('MONGO_URI')
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/disney_db'
 
-# mongo = PyMongo(app, ssl_cert_reqs=CERT_NONE)
+mongo = PyMongo(app)
 
-mongo = pymongo.MongoClient(os.environ.get('MONGO_URI'), tls=True, tlsAllowInvalidCertificates=True)
+# mongo = pymongo.MongoClient(os.environ.get('MONGO_URI'), tls=True, tlsAllowInvalidCertificates=True)
 
 @app.route("/")
 def home():
@@ -41,10 +38,23 @@ def landing():
 #     # return jsonify([ride for ride in data])
 #     return jsonify(data)
 
-# @app.route("/static")
-# def pull_data():
-#     data = Flask.url_for('static', filename='merged_data.json')
-#     return (data)
+
+
+@app.route("/static")
+def pull_data():
+    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+    json_url = os.path.join(SITE_ROOT, "static/js", "merged_data.json")
+    data = json.load(open(json_url))
+
+    return render_template("landing_page.html", data=data)
+
+@app.route("/movie_json")
+def get_data():
+    SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
+    json_url = os.path.join(SITE_ROOT, "static/js", "merged_data.json")
+    data = json.load(open(json_url))
+
+    return jsonify(data)
 
 if __name__ == "__main__":
    app.run(port=8000, debug=True)
