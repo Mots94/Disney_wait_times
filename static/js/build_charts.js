@@ -7,16 +7,14 @@ function init() {
 
       console.log(data)
 
-      dates = Object.keys().forEach()
-
-      console.log(dates)
-  
-//       dataNames.forEach((entry) => {
-//         selector
-//           .append("option")
-//           .text(entry)
-//           .property("value", entry);
+      document.getElementById("dateSelect").addEventListener("change", function(){
+        let input = this.value;
+        let dateEntered = new Date(input);
+        console.log(input);
+        console.log(dateEntered);
       });
+  
+    });
   
 //       // Use the first date from the list to build the initial plots
 //       var firstDate = dataNames[0];
@@ -27,8 +25,7 @@ function init() {
 
 init();
   
-  
-//   // this function is the trigger when the drop down is used to select a new value
+
 //   function optionChanged(newDate) {
   
 //     // Fetch new data each time a new date is selected
@@ -37,33 +34,29 @@ init();
     
 //   }
   
-//   // Demographics Panel 
-//   function buildMetadata(entry) {
-//     d3.json("metadata.json").then((data) => {
-//       var metadata = data.metadata;
-//       console.log(metadata)
+  // Demographics Panel 
+  function buildMetadata(entry) {
+    d3.json("http://localhost:8000/disney_json").then((data) => {
+      var metadata = data.metadata;
+      console.log(metadata)
   
-//       // Filter the data for the object with the desired sample number
-//       var resultArray = metadata.filter(sampleObj => sampleObj.id == entry);
-//       console.log(resultArray)
-//       var result = resultArray[0];
-//       console.log(result)
+      var resultArray = metadata.filter(sampleObj => sampleObj.id == entry);
+      console.log(resultArray)
+      var result = resultArray[0];
+      console.log(result)
   
-//       // Use d3 to select the panel with id of `#ride-metadata`
-//       var PANEL = d3.select("#ride-metadata");
+      // Use d3 to select the panel with id of `#ride-metadata`
+      var PANEL = d3.select("#ride-times");
   
-//       // Use `.html("") to clear any existing metadata
-//       PANEL.html("");
+      // Use `.html("") to clear any existing metadata
+      PANEL.html("");
   
-//       // Use `Object.entries` to add each key and value pair to the panel
-//       // Hint: Inside the loop, you will need to use d3 to append new
-//       // tags for each key-value in the metadata.
-//       Object.entries(result).forEach(([key, value]) => {
-//         PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
-//       });
+      Object.entries(result).forEach(([key, value]) => {
+        PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+      });
   
-//     });
-//   }
+    });
+  }
   
   
 //   // Create Ride Bar Chart 
