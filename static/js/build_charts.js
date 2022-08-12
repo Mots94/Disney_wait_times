@@ -1,123 +1,127 @@
 function init() {
-    // Grab a reference to the dropdown select element
-    let input = d3.select("#dateSelect");
-  
+    
     // Use the list of names to populate the select options
     d3.json("http://localhost:8000/disney_json").then((data) => {
 
       console.log(data)
 
       document.getElementById("dateSelect").addEventListener("change", function(){
-        let input = this.value;
-        let dateEntered = new Date(input);
-        console.log(input);
+        var dateInput = this.value;
+        var dateEntered = new Date(dateInput);
+        console.log(dateInput);
         console.log(dateEntered);
       });
   
     });
   
-//       // Use the first date from the list to build the initial plots
-//       var firstDate = dataNames[0];
-//       buildCharts(firstDate);
-//       buildMetadata(firstDate);
-//     });
+      // Use the first date from the list to build the initial plots
+      var firstDate = input['value'];
+      buildCharts(firstDate);
+      // buildMetadata(firstDate);
 };
 
-init();
-  
 
-//   function optionChanged(newDate) {
+  function optionChanged(newDate) {
   
 //     // Fetch new data each time a new date is selected
 //     buildMetadata(newDate);
-//     buildCharts(newDate);
+    buildCharts(newDate);
     
-//   }
-  
-  // Demographics Panel 
-  function buildMetadata(entry) {
-    d3.json("http://localhost:8000/disney_json").then((data) => {
-      var metadata = data.metadata;
-      console.log(metadata)
-  
-      var resultArray = metadata.filter(sampleObj => sampleObj.id == entry);
-      console.log(resultArray)
-      var result = resultArray[0];
-      console.log(result)
-  
-      // Use d3 to select the panel with id of `#ride-metadata`
-      var PANEL = d3.select("#ride-times");
-  
-      // Use `.html("") to clear any existing metadata
-      PANEL.html("");
-  
-      Object.entries(result).forEach(([key, value]) => {
-        PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
-      });
-  
-    });
   }
   
+  // Info. Panel 
+  // function buildMetadata() {
+  //   d3.json("http://localhost:8000/disney_json").then((data) => {
+
+  //     let metadata = data;
+  //     console.log(metadata)
   
-//   // Create Ride Bar Chart 
-  
-//   // 1. Create the buildCharts function.
-//   function buildCharts(entry) {
-  
-//     // 2. Use d3.json to load and retrieve the metadata.json file 
-//     d3.json("metadata.json").then((data) => {
-  
-//       // 3. Create a variable that holds the array. 
-//       var entries = data.entries;
-//       console.log(entries);
+      // var resultArray = metadata.filter(sampleObj => sampleObj.date == dateInput);
+      // console.log(resultArray);
+      // var result = resultArray[0];
+      // console.log(result);
       
-//       // 4. Create a variable that filters the entries for the object with the desired entry number.
-//       var filteredEntries = entries.filter(sampleObj => sampleObj.id == entry);
-//       console.log(filteredEntries);
   
-//       //  5. Create a variable that holds the first entry in the array.
-//       var results = filteredEntries[0];
-//       console.log(results);
+  //     // Use d3 to select the panel with id of `#ride-metadata`
+  //     var PANEL = d3.select("#ride-times");
   
-//       // 6. Create variables that hold the ride names and times.
-//       var rides = results.ride_name;
-//       console.log(rides);
+  //     // Use `.html("") to clear any existing metadata
+  //     PANEL.html("");
   
-//       var values = results.sactmin;
+  //     Object.entries(result).forEach(([key, value]) => {
+  //       PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+  //     });
+  
+  //   });
+  // }
   
   
-//       // 7. Create the yticks for the bar chart.
+  // Create Ride Bar Chart 
+  
+  // 1. Create the buildCharts function.
+  function buildCharts(input) {
+  
+    // 2. Use d3.json to load and retrieve the metadata.json file 
+    d3.json("http://localhost:8000/disney_json").then((data) => {
+
+      document.getElementById("dateSelect").addEventListener("change", function(){
+        var dateInput = this.value;
+        var dateEntered = new Date(dateInput);
+        console.log(dateInput);
+        console.log(dateEntered);
+      });
+  
+      // 3. Create a variable that holds the array.
+      wait_data = data; 
+      console.log(data);
+      
+      // 4. Create a variable that filters the entries for the object with the desired entry number.
+      var filteredEntries = wait_data.filter(sampleObj => sampleObj.date == dateInput);
+      console.log(filteredEntries);
+  
+      //  5. Create a variable that holds the first entry in the array.
+      var results = filteredEntries[0];
+      console.log(results);
+  
+      // 6. Create variables that hold the ride names and times.
+      var rides = results.ride_name;
+      console.log(rides);
+  
+      var values = results.sactmin;
+  
+  
+      // 7. Create the yticks for the bar chart.
     
   
-//       var yticks = rides.map((rides) => `Ride Name: ${rides}`).reverse();
+  //     var yticks = rides.map((rides) => `Ride Name: ${rides}`).reverse();
   
-//       // 8. Create the trace for the bar chart. 
-//       var barData = [{
-//         x: values.reverse(),
-//         y: yticks,
-//         type: "bar",
-//         orientation: "h",
-//         text: rides.reverse(),
-//         marker: {color: '#17becf'},
-//       }];
+  //     // 8. Create the trace for the bar chart. 
+  //     var barData = [{
+  //       x: values.reverse(),
+  //       y: yticks,
+  //       type: "bar",
+  //       orientation: "h",
+  //       text: rides.reverse(),
+  //       marker: {color: '#17becf'},
+  //     }];
   
-//       // 9. Create the layout for the bar chart. 
+  //     // 9. Create the layout for the bar chart. 
     
-//       var barLayout = {
-//         title: {
-//         text: "<b>Average Ride Wait TImes</b>",
-//         font: {
-//         size: 20
-//         },
-//         color: {color: 'magenta',}
-//       }};
+  //     var barLayout = {
+  //       title: {
+  //       text: "<b>Average Ride Wait TImes</b>",
+  //       font: {
+  //       size: 20
+  //       },
+  //       color: {color: 'magenta',}
+  //     }};
   
   
   
-//       // 10. Use Plotly to plot the data with the layout. 
-//       Plotly.newPlot("ride_bar", barData, barLayout);
-//     // });
-//   //}
+  //     // 10. Use Plotly to plot the data with the layout. 
+  //     Plotly.newPlot("ride_bar", barData, barLayout);
+   });
+  };
   
   
   
@@ -243,4 +247,4 @@ init();
   
   
   // Initialize the dashboard
-//   init();
+init();
