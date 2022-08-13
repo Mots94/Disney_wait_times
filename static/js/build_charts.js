@@ -3,16 +3,17 @@ function dashboard() {
     // Use the list of names to populate the select options
     d3.json("http://localhost:8000/disney_json").then((data) => {
 
-      console.log(data)
+      console.log(data[0].date)
 
       var currentDate = document.getElementById("dateSelect").value
 
       console.log(currentDate)
       
-      // currentDate.addEventListener("change", function(){
-      //   var dateInput = this.value;
+      document.getElementById("dateSelect").addEventListener("change", function(){
+        var dateInput = this.value;
+        var dateEntered = new Date(dateInput);
+        console.log(dateInput);
       //   var dateEntered = new Date(dateInput);
-        // console.log(dateInput);
         // console.log(dateEntered);
 
       // Use the first date from the list to build the initial plots
@@ -21,9 +22,9 @@ function dashboard() {
       // buildCharts(firstDate);
       // buildMetadata(firstDate);
 
-      });
+    });  
   
-    // });
+    });
   
       // Use the first date from the list to build the initial plots
       // var firstDate = currentDate.value;
