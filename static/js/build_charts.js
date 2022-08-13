@@ -98,30 +98,25 @@ function buildCharts() {
       observationsTime = value.sactmin
       console.log(observationsRide)
       console.log(observationsTime)
-      rideName.push(observations)
+      rideName.push(observationsRide)
+      rideTime.push(observationsTime)
     });
 
     console.log(rideName);
-
-    // Object.entries(observations).forEach(([key, value]) => {
-    //   console.log(key, value);
-    // });
+    console.log(rideTime);
     
-    // console.log(rideName);
-    
-    const waitTimes = filteredData.sactmin;
     // 7. Create the yticks for the bar chart.
     
-  //   const xticks = rideName.map(ride => `Ride Name: ${rideName}`);
-  //   const yticks = waitTimes.map(time => `Wait Time: ${waitTimes}(minutes)`);
+    const xticks = rideName;
+    const yticks = rideTime;
     
-  //   // 8. Create the trace for the bar chart. 
-  //   let barData = [{
-  //     x: xticks,
-  //     y: yticks,
-  //     type: "bar",
-  //     marker: {color: '#17becf'},
-  //   }];
+    // 8. Create the trace for the bar chart. 
+    let barData = [{
+      x: xticks,
+      y: yticks,
+      type: "bar",
+      marker: {color: '#17becf'},
+    }];
     
   //   // 9. Create the layout for the bar chart. 
 
@@ -134,8 +129,8 @@ function buildCharts() {
   //     color: {color: 'magenta',}
   //   }};
     
-  //   // 10. Use Plotly to plot the data with the layout. 
-  //   Plotly.newPlot("ride_bar", barData, barLayout);
+    // 10. Use Plotly to plot the data with the layout. 
+    Plotly.newPlot("ride_bar", barData);
   
     }); 
     
