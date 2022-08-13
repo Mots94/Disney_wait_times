@@ -33,7 +33,42 @@ function getFilteredData(date, data) {
   const filtersData = [...data]
   return filtersData.filter(row => row.date.slice('0', '10') === date)
 };
+
+function buildPlots() {
+
+// 6. Create variables that hold the ride names and times.
+  const rideName = filteredData.ride_name
   
+  const waitTimes = filteredData.sactmin;
+  // 7. Create the yticks for the bar chart.
+  
+  const xticks = rides.map(ride => `Ride Name: ${rideName}`);
+  const yticks = times.map(time => `Wait Time: ${waitTimes}(minutes)`);
+  
+  // 8. Create the trace for the bar chart. 
+  let barData = [{
+    x: xticks,
+    y: yticks,
+    type: "bar",
+    marker: {color: '#17becf'},
+  }];
+  
+  // 9. Create the layout for the bar chart. 
+
+  let barLayout = {
+    title: {
+    text: "<b>Average Ride Wait TImes</b>",
+    font: {
+    size: 20
+    },
+    color: {color: 'magenta',}
+  }};
+  
+  // 10. Use Plotly to plot the data with the layout. 
+  Plotly.newPlot("ride_bar", barData, barLayout);
+  
+}; 
+
   // 1. Create the buildCharts function.
 function buildCharts() {
   
@@ -43,10 +78,6 @@ function buildCharts() {
     // 3. Create a variable that holds the array.
     // Write function to parse data (date string)
     const waitData = data;
-
-    
-
-    console.log(waitData.date)
 
     const firstDate = getFirstDate();
     console.log(waitData);
@@ -58,6 +89,60 @@ function buildCharts() {
     console.log(filteredData);
 
     // Call function for data plotting
+    
+    rideName = []
+    rideTime = []
+
+    Object.entries(filteredData).forEach(([key, value]) => {
+      observationsRide = value.ride_name
+      observationsTime = value.sactmin
+      console.log(observationsRide)
+      console.log(observationsTime)
+      rideName.push(observations)
+    });
+
+    console.log(rideName);
+
+    // Object.entries(observations).forEach(([key, value]) => {
+    //   console.log(key, value);
+    // });
+    
+    // console.log(rideName);
+    
+    const waitTimes = filteredData.sactmin;
+    // 7. Create the yticks for the bar chart.
+    
+  //   const xticks = rideName.map(ride => `Ride Name: ${rideName}`);
+  //   const yticks = waitTimes.map(time => `Wait Time: ${waitTimes}(minutes)`);
+    
+  //   // 8. Create the trace for the bar chart. 
+  //   let barData = [{
+  //     x: xticks,
+  //     y: yticks,
+  //     type: "bar",
+  //     marker: {color: '#17becf'},
+  //   }];
+    
+  //   // 9. Create the layout for the bar chart. 
+
+  //   let barLayout = {
+  //     title: {
+  //     text: "<b>Average Ride Wait TImes</b>",
+  //     font: {
+  //     size: 20
+  //     },
+  //     color: {color: 'magenta',}
+  //   }};
+    
+  //   // 10. Use Plotly to plot the data with the layout. 
+  //   Plotly.newPlot("ride_bar", barData, barLayout);
+  
+    }); 
+    
+  };
+
+buildCharts();
+
     // document.getElementById("dateSelect").addEventListener("change", function(){
     // filteredData();
     // Call data plot function
@@ -67,54 +152,46 @@ function buildCharts() {
   // buildCharts(firstDate);
   // buildMetadata(firstDate);
 
-  // });  
+// function buildPlot() {
 
-      // //  5. Create a variable that holds the first entry in the array.
-      // var results = filteredEntries[0];
-      // console.log(results);
+      // 6. Create variables that hold the ride names and times.
   
-      // // 6. Create variables that hold the ride names and times.
-      // var rides = results.ride_name;
-      // console.log(rides);
   
       // var values = results.sactmin;
   
   
-      // 7. Create the yticks for the bar chart.
+      // // 7. Create the yticks for the bar chart.
     
   
-  //     var yticks = rides.map((rides) => `Ride Name: ${rides}`).reverse();
+      // var yticks = rides.map((rides) => `Ride Name: ${rides}`).reverse();
   
-  //     // 8. Create the trace for the bar chart. 
-  //     var barData = [{
-  //       x: values.reverse(),
-  //       y: yticks,
-  //       type: "bar",
-  //       orientation: "h",
-  //       text: rides.reverse(),
-  //       marker: {color: '#17becf'},
-  //     }];
+      // // 8. Create the trace for the bar chart. 
+      // var barData = [{
+      //   x: values.reverse(),
+      //   y: yticks,
+      //   type: "bar",
+      //   orientation: "h",
+      //   text: rides.reverse(),
+      //   marker: {color: '#17becf'},
+      // }];
   
-  //     // 9. Create the layout for the bar chart. 
+      // // 9. Create the layout for the bar chart. 
     
-  //     var barLayout = {
-  //       title: {
-  //       text: "<b>Average Ride Wait TImes</b>",
-  //       font: {
-  //       size: 20
-  //       },
-  //       color: {color: 'magenta',}
-  //     }};
+      // var barLayout = {
+      //   title: {
+      //   text: "<b>Average Ride Wait TImes</b>",
+      //   font: {
+      //   size: 20
+      //   },
+      //   color: {color: 'magenta',}
+      // }};
   
   
   
-  //     // 10. Use Plotly to plot the data with the layout. 
-  //     Plotly.newPlot("ride_bar", barData, barLayout);
-  });
-};
-buildCharts();
+      // // 10. Use Plotly to plot the data with the layout. 
+      // Plotly.newPlot("ride_bar", barData, barLayout);
   
-  
+// };  
   
 //   // Create a Ride Bubble Chart
   
