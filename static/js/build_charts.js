@@ -1,33 +1,45 @@
-function init() {
+function dashboard() {
     
     // Use the list of names to populate the select options
     d3.json("http://localhost:8000/disney_json").then((data) => {
 
       console.log(data)
 
-      document.getElementById("dateSelect").addEventListener("change", function(){
-        var dateInput = this.value;
-        var dateEntered = new Date(dateInput);
-        console.log(dateInput);
-        console.log(dateEntered);
+      var currentDate = document.getElementById("dateSelect").value
+
+      console.log(currentDate)
+      
+      // currentDate.addEventListener("change", function(){
+      //   var dateInput = this.value;
+      //   var dateEntered = new Date(dateInput);
+        // console.log(dateInput);
+        // console.log(dateEntered);
+
+      // Use the first date from the list to build the initial plots
+      // var firstDate = currentDate.value;
+      // console.log(firstDate);
+      // buildCharts(firstDate);
+      // buildMetadata(firstDate);
+
       });
   
-    });
+    // });
   
       // Use the first date from the list to build the initial plots
-      var firstDate = input['value'];
-      buildCharts(firstDate);
+      // var firstDate = currentDate.value;
+      // console.log(firstDate);
+      // buildCharts(firstDate);
       // buildMetadata(firstDate);
 };
 
 
-  function optionChanged(newDate) {
+  // function optionChanged(newDate) {
   
 //     // Fetch new data each time a new date is selected
 //     buildMetadata(newDate);
-    buildCharts(newDate);
+  //   buildCharts(newDate);
     
-  }
+  // }
   
   // Info. Panel 
   // function buildMetadata() {
@@ -59,35 +71,37 @@ function init() {
   // Create Ride Bar Chart 
   
   // 1. Create the buildCharts function.
-  function buildCharts(input) {
+  // function buildCharts(dateInput) {
   
     // 2. Use d3.json to load and retrieve the metadata.json file 
-    d3.json("http://localhost:8000/disney_json").then((data) => {
+    // d3.json("http://localhost:8000/disney_json").then((data) => {
 
-      document.getElementById("dateSelect").addEventListener("change", function(){
-        var dateInput = this.value;
-        var dateEntered = new Date(dateInput);
-        console.log(dateInput);
-        console.log(dateEntered);
-      });
+    //  document.getElementById("dateSelect")
+    //   console.log(currentDate)
+      // .addEventListener("change", function(){
+      //   var dateInput = this.value;
+      //   var dateEntered = new Date(dateInput);
+      //   console.log(dateInput);
+      //   console.log(dateEntered);
+      // });
   
       // 3. Create a variable that holds the array.
-      wait_data = data; 
-      console.log(data);
+      // wait_data = data; 
+      // console.log(data);
       
       // 4. Create a variable that filters the entries for the object with the desired entry number.
-      var filteredEntries = wait_data.filter(sampleObj => sampleObj.date == dateInput);
-      console.log(filteredEntries);
+      // var filteredEntries = wait_data.filter(sampleObj => sampleObj.date == dateInput);
+      // console.log(filteredEntries);
   
-      //  5. Create a variable that holds the first entry in the array.
-      var results = filteredEntries[0];
-      console.log(results);
+      // //  5. Create a variable that holds the first entry in the array.
+      // var results = filteredEntries[0];
+      // console.log(results);
   
-      // 6. Create variables that hold the ride names and times.
-      var rides = results.ride_name;
-      console.log(rides);
+      // // 6. Create variables that hold the ride names and times.
+      // var rides = results.ride_name;
+      // console.log(rides);
   
-      var values = results.sactmin;
+      // var values = results.sactmin;
   
   
       // 7. Create the yticks for the bar chart.
@@ -120,8 +134,8 @@ function init() {
   
   //     // 10. Use Plotly to plot the data with the layout. 
   //     Plotly.newPlot("ride_bar", barData, barLayout);
-   });
-  };
+  //  });
+  // };
   
   
   
@@ -247,4 +261,4 @@ function init() {
   
   
   // Initialize the dashboard
-init();
+dashboard();
