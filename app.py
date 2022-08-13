@@ -53,7 +53,7 @@ def get_data():
     SITE_ROOT = os.path.realpath(os.path.dirname(__file__))
     json_url = os.path.join(SITE_ROOT, "static/js", "merged_data.json")
     data = json.load(open(json_url))
-
+    print(len(data))
     return jsonify(data)
 
 if __name__ == "__main__":

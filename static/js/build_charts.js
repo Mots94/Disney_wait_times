@@ -1,99 +1,74 @@
-function dashboard() {
+function getFirstDate() {
     
-    // Use the list of names to populate the select options
-    d3.json("http://localhost:8000/disney_json").then((data) => {
+  return document.getElementById("dateSelect").value
 
-      console.log(data[0].date)
-
-      var currentDate = document.getElementById("dateSelect").value
-
-      console.log(currentDate)
-      
-      document.getElementById("dateSelect").addEventListener("change", function(){
-        var dateInput = this.value;
-        var dateEntered = new Date(dateInput);
-        console.log(dateInput);
-      //   var dateEntered = new Date(dateInput);
-        // console.log(dateEntered);
-
-      // Use the first date from the list to build the initial plots
-      // var firstDate = currentDate.value;
-      // console.log(firstDate);
-      // buildCharts(firstDate);
-      // buildMetadata(firstDate);
-
-    });  
+  console.log(firstDate)
   
-    });
-  
-      // Use the first date from the list to build the initial plots
-      // var firstDate = currentDate.value;
-      // console.log(firstDate);
-      // buildCharts(firstDate);
-      // buildMetadata(firstDate);
+  document.getElementById("dateSelect").addEventListener("change", function(){
+    const dateInput = this.value;
+    return dateInput;
+
+
+  // Use the first date build initial plots
+  // buildCharts(firstDate);
+  // buildMetadata(firstDate);
+
+  });  
+
 };
 
 
-  // function optionChanged(newDate) {
-  
-//     // Fetch new data each time a new date is selected
-//     buildMetadata(newDate);
-  //   buildCharts(newDate);
-    
-  // }
-  
-  // Info. Panel 
-  // function buildMetadata() {
-  //   d3.json("http://localhost:8000/disney_json").then((data) => {
 
-  //     let metadata = data;
-  //     console.log(metadata)
+// function optionChanged(newDate) {
   
-      // var resultArray = metadata.filter(sampleObj => sampleObj.date == dateInput);
-      // console.log(resultArray);
-      // var result = resultArray[0];
-      // console.log(result);
-      
+  // Fetch new data each time a new date is selected
+  // buildMetadata(newDate);
+  // buildCharts(newDate);
   
-  //     // Use d3 to select the panel with id of `#ride-metadata`
-  //     var PANEL = d3.select("#ride-times");
-  
-  //     // Use `.html("") to clear any existing metadata
-  //     PANEL.html("");
-  
-  //     Object.entries(result).forEach(([key, value]) => {
-  //       PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
-  //     });
-  
-  //   });
-  // }
-  
-  
-  // Create Ride Bar Chart 
+// }
+ 
+  // Create Ride Bar Chart
+
+function getFilteredData(date, data) {
+  const filtersData = [...data]
+  return filtersData.filter(row => row.date.slice('0', '10') === date)
+};
   
   // 1. Create the buildCharts function.
-  // function buildCharts(dateInput) {
+function buildCharts() {
   
-    // 2. Use d3.json to load and retrieve the metadata.json file 
-    // d3.json("http://localhost:8000/disney_json").then((data) => {
+  // 2. Use d3.json to load and retrieve data source 
+  d3.json("http://localhost:8000/disney_json").then((data) => {
+ 
+    // 3. Create a variable that holds the array.
+    // Write function to parse data (date string)
+    const waitData = data;
 
-    //  document.getElementById("dateSelect")
-    //   console.log(currentDate)
-      // .addEventListener("change", function(){
-      //   var dateInput = this.value;
-      //   var dateEntered = new Date(dateInput);
-      //   console.log(dateInput);
-      //   console.log(dateEntered);
-      // });
-  
-      // 3. Create a variable that holds the array.
-      // wait_data = data; 
-      // console.log(data);
-      
-      // 4. Create a variable that filters the entries for the object with the desired entry number.
-      // var filteredEntries = wait_data.filter(sampleObj => sampleObj.date == dateInput);
-      // console.log(filteredEntries);
-  
+    
+
+    console.log(waitData.date)
+
+    const firstDate = getFirstDate();
+    console.log(waitData);
+    console.log(firstDate);
+
+    
+    // 4. Filter data based on current date
+    const filteredData = getFilteredData(firstDate, waitData);
+    console.log(filteredData);
+
+    // Call function for data plotting
+    // document.getElementById("dateSelect").addEventListener("change", function(){
+    // filteredData();
+    // Call data plot function
+
+
+  // Use the first date build initial plots
+  // buildCharts(firstDate);
+  // buildMetadata(firstDate);
+
+  // });  
+
       // //  5. Create a variable that holds the first entry in the array.
       // var results = filteredEntries[0];
       // console.log(results);
@@ -135,8 +110,9 @@ function dashboard() {
   
   //     // 10. Use Plotly to plot the data with the layout. 
   //     Plotly.newPlot("ride_bar", barData, barLayout);
-  //  });
-  // };
+  });
+};
+buildCharts();
   
   
   
@@ -259,7 +235,32 @@ function dashboard() {
   
 //     });
 //   }
+
+  // Info. Panel 
+  // function buildMetadata() {
+  //   d3.json("http://localhost:8000/disney_json").then((data) => {
+
+  //     let metadata = data;
+  //     console.log(metadata)
+  
+      // var resultArray = metadata.filter(sampleObj => sampleObj.date == dateInput);
+      // console.log(resultArray);
+      // var result = resultArray[0];
+      // console.log(result);
+      
+  
+  //     // Use d3 to select the panel with id of `#ride-metadata`
+  //     var PANEL = d3.select("#ride-times");
+  
+  //     // Use `.html("") to clear any existing metadata
+  //     PANEL.html("");
+  
+  //     Object.entries(result).forEach(([key, value]) => {
+  //       PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+  //     });
+  
+  //   });
+  // }
   
   
   // Initialize the dashboard
-dashboard();
