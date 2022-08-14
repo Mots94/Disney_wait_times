@@ -14,24 +14,13 @@ function getNewDate(newDate) {
   buildCharts(newDate); 
 };
 
- 
-// function optionChanged(newDate) {
-  
-  // Fetch new data each time a new date is selected
-  // buildMetadata(newDate);
-  // buildCharts(newDate);
-  
-// }
- 
-  // Create Ride Bar Chart
-
 function getFilteredData(date, data) {
   const filtersData = [...data]
   return filtersData.filter(row => row.date.slice('0', '10') === date)
 };
 
 
-  // 1. Create the buildCharts function.
+// Create the buildCharts function.
 function buildCharts(date) {
   
   // 2. Use d3.json to load and retrieve data source 
@@ -45,7 +34,7 @@ function buildCharts(date) {
     const filteredData = getFilteredData(date, waitData);
     console.log(filteredData);
 
-    // Call function for data plotting
+    // 5. Organize data for plotting
     
     rideName = []
     rideTime = []
@@ -53,61 +42,48 @@ function buildCharts(date) {
     Object.entries(filteredData).forEach(([key, value]) => {
       observationsRide = value.ride_name
       observationsTime = value.sactmin
-      console.log(observationsRide)
-      console.log(observationsTime)
       rideName.push(observationsRide)
       rideTime.push(observationsTime)
     });
-
-    console.log(rideName);
-    console.log(rideTime);
     
-    // 7. Create the yticks for the bar chart.
+    // 6. Create the xticks and yticks for the bar chart.
     
     const xticks = rideName;
     const yticks = rideTime;
     
-    // 8. Create the trace for the bar chart. 
+    // 7. Create the trace for the bar chart. 
     let barData = [{
-      x: xticks,
-      y: yticks,
+      x: yticks,
+      y: xticks,
       type: "bar",
+      orientation: 'h',
       marker: {color: '#17becf'},
     }];
     
-  //   // 9. Create the layout for the bar chart. 
+    // 8. Create the layout for the bar chart. 
 
-  //   let barLayout = {
-  //     title: {
-  //     text: "<b>Average Ride Wait TImes</b>",
-  //     font: {
-  //     size: 20
-  //     },
-  //     color: {color: 'magenta',}
-  //   }};
+    let barLayout = {
+      title: {
+        text: "<b>Average Ride Wait Times</b>",
+        font: {
+          size: 20,
+        },
+      },
+      xaxis: {
+        title: "Ride Name"
+      },
+      yaxis: {
+        title: "Wait Time (Minutes)"
+      }
+
+    };
     
     // 10. Use Plotly to plot the data with the layout. 
-    Plotly.newPlot("ride_bar", barData);
+    Plotly.newPlot("ride_bar", barData, barLayout);
   
   }); 
     
 };
-
-const newDate = document.getElementById("dateSelect").addEventListener("change", function(){
-  getFilteredData(newDate, waitData)
-
-});
-
-
-
-    
-
-
-  // Use the first date build initial plots
-  // buildCharts(firstDate);
-  // buildMetadata(firstDate);
-
- 
   
 //   // Create a Ride Bubble Chart
   
