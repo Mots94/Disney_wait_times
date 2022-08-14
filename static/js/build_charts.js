@@ -85,18 +85,16 @@ function buildCharts(date) {
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("ride_bar", barData, barLayout);
   
-      // Create Precipitation Gauge Chart
-    // 1. Create a variable that filters the metadata array for the object with the desired date.
-    precipitation = []
+    // Create Precipitation Gauge Chart
+    // 1. Create a variable that stores precipitation data.
+    const precipitation = []
     
     Object.entries(filteredData).forEach(([key, value]) => {
       observationPrecip = value.wdw_precip
       precipitation.push(observationPrecip)
     });
 
-    console.log(precipitation);
-
-    precipDay = precipitation[0];
+    const precipDay = precipitation[0];
 
     // 2. Create the trace for the gauge chart.
       var gaugeData = [
@@ -128,6 +126,46 @@ function buildCharts(date) {
     // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("precip_gauge", gaugeData, gaugeLayout);
 
+    // Create Teamperature Gauge Chart
+    // 1. Create a variable that stores temperature data.
+    const temp = []
+    
+    Object.entries(filteredData).forEach(([key, value]) => {
+      observationTemp = value.wdw_mean_temp
+      temp.push(observationTemp)
+    });
+
+    const tempDay = temp[0];
+
+    // 4. Create the trace for the gauge chart.
+    var gaugeData2 = [
+    {
+      title: { text: "<b>Average Temperature</b>" },
+      value: tempDay,
+      type: "indicator",
+      mode: "gauge+number",
+      gauge: {
+        axis: { range: [40, 90], tickwidth: 10, tickcolor: "black" },
+        bar: { color: "black" },
+        steps: [
+          { range: [40, 50], color: "green" },
+          { range: [50, 60], color: "lightgreen" },
+          { range: [60, 70], color: "yellow" },
+          { range: [70, 80], color: "orange" },
+          { range: [80, 90], color: "red" },
+        ],
+      }
+    }
+    ];
+    
+    // 5. Create the layout for the gauge chart.
+    var gaugeLayout = { 
+          width: 500, 
+          height: 425, 
+          margin: { t: 0, b: 0 } };
+    
+    // 6. Use Plotly to plot the gauge data and layout.
+    Plotly.newPlot("temp_gauge", gaugeData2, gaugeLayout);
   });
   
     
@@ -164,48 +202,6 @@ function buildCharts(date) {
   
 //       // 3. Use Plotly to plot the data with the layout.
 //       Plotly.newPlot("bubble", bubbleData, bubbleLayout);
-  
-  
-//   // Create Precipitation Gauge Chart
-//   // 1. Create a variable that filters the metadata array for the object with the desired date.
-//     var metadata = data.metadata;
-  
-//       // 2. Create a variable that holds the first sample in the metadata array.
-//       var gaugeArray = metadata.filter(metadataObj => metadataObj.id == sample);
-//       var gaugeResult = gaugeArray[0];
-  
-//       // 3. Create a variable that holds the washing frequency.
-//       var precipGauge = gaugeResult.wfreq;
-      
-//       // 4. Create the trace for the gauge chart.
-//       var gaugeData = [
-//       {
-//         title: { text: "<b>Precipitation Amount</b>" },
-//         value: parseFloat(precipGauge),
-//         type: "indicator",
-//         mode: "gauge+number",
-//         gauge: {
-//           axis: { range: [0, 10], tickwidth: 2, tickcolor: "black" },
-//           bar: { color: "black" },
-//           steps: [
-//             { range: [0, 1], color: "green" },
-//             { range: [1, 2], color: "lightgreen" },
-//             { range: [3, 4], color: "yellow" },
-//             { range: [5, 6], color: "orange" },
-//             { range: [7, 8], color: "red" },
-//           ],
-//         }
-//       }
-//     ];
-      
-//       // 5. Create the layout for the gauge chart.
-//       var gaugeLayout = { 
-//              width: 500, 
-//              height: 425, 
-//              margin: { t: 0, b: 0 } };
-      
-//       // 6. Use Plotly to plot the gauge data and layout.
-//       Plotly.newPlot("precip_gauge", gaugeData, gaugeLayout);
   
   
 //   // Create Temperature Gauge Chart
