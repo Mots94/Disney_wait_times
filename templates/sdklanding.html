@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Time of Magic: Evaluating the Wait Time Factors for the Magic Kingdom</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Custom styles for this template -->
+  <!-- <link rel ="stylesheet" href="static/css/app.css"> -->
+</head>
+
+<body >
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center", style="background-image: url(static/images/magic_kingdom.jpeg); background-size: 100%"; height: 400px;> 
+        <h1 style = "color:rgb(68, 15, 51); font-family:arial, verdana, sans-serif">Time of Magic</h1>
+        <p style="color:rgb(68, 15, 51);"><b><u>Evaluating the Wait Time Factors for the Magic Kingdom</u></b></p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <h3><u>Use the Charts Below to Interact with the Dataset</u></h3>
+  </div>
+  <div class="container">
+    <label>Choose Dates to View <input type="date" id="dateSelect" min="2015-01-01" max="2019-12-31"/></label>
+    <div class="col-md-12">
+        <div id="waitTimes"></div>
+    </div>
+    <div class="col-md-12">
+        <div id="avgTemp"></div>
+    </div>
+    <div class="col-md-12"></div>
+        <div id="avgPrecip"></div>
+    </div>
+  </div>
+
+
+  <script src="{{url_for('static',filename='js/sdk.js')}}"></script>
+
+
+</body>
+
+</html>
