@@ -1,24 +1,20 @@
 function getFirstDate() {
-    
-  return document.getElementById("dateSelect").value
-
-  console.log(firstDate)
-  
-  document.getElementById("dateSelect").addEventListener("change", function(){
-    const dateInput = this.value;
-    return dateInput;
+  const firstDate = document.getElementById("dateSelect").value
 
 
   // Use the first date build initial plots
-  // buildCharts(firstDate);
-  // buildMetadata(firstDate);
 
-  });  
-
+  buildCharts(firstDate);
+// buildMetadata(firstDate);
 };
 
+getFirstDate();
 
+function getNewDate(newDate) {
+  buildCharts(newDate); 
+};
 
+ 
 // function optionChanged(newDate) {
   
   // Fetch new data each time a new date is selected
@@ -34,43 +30,9 @@ function getFilteredData(date, data) {
   return filtersData.filter(row => row.date.slice('0', '10') === date)
 };
 
-function buildPlots() {
-
-// 6. Create variables that hold the ride names and times.
-  const rideName = filteredData.ride_name
-  
-  const waitTimes = filteredData.sactmin;
-  // 7. Create the yticks for the bar chart.
-  
-  const xticks = rides.map(ride => `Ride Name: ${rideName}`);
-  const yticks = times.map(time => `Wait Time: ${waitTimes}(minutes)`);
-  
-  // 8. Create the trace for the bar chart. 
-  let barData = [{
-    x: xticks,
-    y: yticks,
-    type: "bar",
-    marker: {color: '#17becf'},
-  }];
-  
-  // 9. Create the layout for the bar chart. 
-
-  let barLayout = {
-    title: {
-    text: "<b>Average Ride Wait TImes</b>",
-    font: {
-    size: 20
-    },
-    color: {color: 'magenta',}
-  }};
-  
-  // 10. Use Plotly to plot the data with the layout. 
-  Plotly.newPlot("ride_bar", barData, barLayout);
-  
-}; 
 
   // 1. Create the buildCharts function.
-function buildCharts() {
+function buildCharts(date) {
   
   // 2. Use d3.json to load and retrieve data source 
   d3.json("http://localhost:8000/disney_json").then((data) => {
@@ -78,14 +40,9 @@ function buildCharts() {
     // 3. Create a variable that holds the array.
     // Write function to parse data (date string)
     const waitData = data;
-
-    const firstDate = getFirstDate();
-    console.log(waitData);
-    console.log(firstDate);
-
     
     // 4. Filter data based on current date
-    const filteredData = getFilteredData(firstDate, waitData);
+    const filteredData = getFilteredData(date, waitData);
     console.log(filteredData);
 
     // Call function for data plotting
@@ -132,61 +89,25 @@ function buildCharts() {
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("ride_bar", barData);
   
-    }); 
+  }); 
     
-  };
+};
 
-buildCharts();
+const newDate = document.getElementById("dateSelect").addEventListener("change", function(){
+  getFilteredData(newDate, waitData)
 
-    // document.getElementById("dateSelect").addEventListener("change", function(){
-    // filteredData();
-    // Call data plot function
+});
+
+
+
+    
 
 
   // Use the first date build initial plots
   // buildCharts(firstDate);
   // buildMetadata(firstDate);
 
-// function buildPlot() {
-
-      // 6. Create variables that hold the ride names and times.
-  
-  
-      // var values = results.sactmin;
-  
-  
-      // // 7. Create the yticks for the bar chart.
-    
-  
-      // var yticks = rides.map((rides) => `Ride Name: ${rides}`).reverse();
-  
-      // // 8. Create the trace for the bar chart. 
-      // var barData = [{
-      //   x: values.reverse(),
-      //   y: yticks,
-      //   type: "bar",
-      //   orientation: "h",
-      //   text: rides.reverse(),
-      //   marker: {color: '#17becf'},
-      // }];
-  
-      // // 9. Create the layout for the bar chart. 
-    
-      // var barLayout = {
-      //   title: {
-      //   text: "<b>Average Ride Wait TImes</b>",
-      //   font: {
-      //   size: 20
-      //   },
-      //   color: {color: 'magenta',}
-      // }};
-  
-  
-  
-      // // 10. Use Plotly to plot the data with the layout. 
-      // Plotly.newPlot("ride_bar", barData, barLayout);
-  
-// };  
+ 
   
 //   // Create a Ride Bubble Chart
   
