@@ -70,18 +70,66 @@ function buildCharts(date) {
         },
       },
       xaxis: {
-        title: "Ride Name"
+        title: "Wait Time (Minutes)"
       },
       yaxis: {
-        title: "Wait Time (Minutes)"
+        title: "Ride Name"
+      },
+      margin: {
+        l: 150,
+        t: 30,
+        
       }
-
     };
     
     // 10. Use Plotly to plot the data with the layout. 
     Plotly.newPlot("ride_bar", barData, barLayout);
   
-  }); 
+      // Create Precipitation Gauge Chart
+    // 1. Create a variable that filters the metadata array for the object with the desired date.
+    precipitation = []
+    
+    Object.entries(filteredData).forEach(([key, value]) => {
+      observationPrecip = value.wdw_precip
+      precipitation.push(observationPrecip)
+    });
+
+    console.log(precipitation);
+
+    precipDay = precipitation[0];
+
+    // 2. Create the trace for the gauge chart.
+      var gaugeData = [
+      {
+        title: { text: "<b>Precipitation Amount</b>" },
+        value: precipDay,
+        type: "indicator",
+        mode: "gauge+number",
+        gauge: {
+          axis: { range: [0, .35], tickwidth: 2, tickcolor: "black" },
+          bar: { color: "black" },
+          steps: [
+            { range: [0, .07], color: "green" },
+            { range: [.07, .14], color: "lightgreen" },
+            { range: [.14, .21], color: "yellow" },
+            { range: [.21, .28], color: "orange" },
+            { range: [.28, .35], color: "red" },
+          ],
+        }
+      }
+    ];
+      
+      // 5. Create the layout for the gauge chart.
+      var gaugeLayout = { 
+             width: 500, 
+             height: 425, 
+             margin: { t: 0, b: 0 } };
+      
+    // 6. Use Plotly to plot the gauge data and layout.
+    Plotly.newPlot("precip_gauge", gaugeData, gaugeLayout);
+
+  });
+  
     
 };
   
