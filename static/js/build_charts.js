@@ -166,8 +166,53 @@ function buildCharts(date) {
     
     // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("temp_gauge", gaugeData2, gaugeLayout);
-  });
+
+    // Create a Ride Bubble Chart
+      
+    rideNameTwo = []
+    rideTimeTwo = []
+
+    Object.entries(waitData).forEach(([key, value]) => {
+      observationsRideTwo = value.ride_name
+      observationsTimeTwo = value.sactmin
+      rideNameTwo.push(observationsRideTwo)
+      rideTimeTwo.push(observationsTimeTwo)
+    });
+
+    console.log(rideNameTwo); 
+    console.log(rideTimeTwo);
+
+      // // Create the trace for the bubble chart.
+      // const bubbleData = [
+      //   {
+      //   type: 'bubble',
+      //   x: rideNameTwo,
+      //   y: rideTimeTwo,
+      //   text: rideNameTwo,
+      //   mode: 'markers',
+      //   marker: {
+      //     size : rideTimeTwo,
+      //     color: rideNameTwo, 
+      //     colorscale: "RdBu"
+      //   }
+      // }
+      // ];
   
+//        var bubbleLayout = {
+//         title: "<br><b>Ride Wait Times</b>",
+//         margin: { t: 0 },
+//         hovermode: "closest",
+//         xaxis: { title: "rides" },
+//         margin: { t: 30}, 
+//         font: {
+//         size: 14
+//       },
+//     };
+  
+      // // 3. Use Plotly to plot the data with the layout.
+      // Plotly.newPlot("bubble", bubbleData);
+
+  });
     
 };
   
