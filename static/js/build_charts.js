@@ -29,6 +29,8 @@ function buildCharts(date) {
     // 3. Create a variable that holds the array.
     // Write function to parse data (date string)
     const waitData = data;
+    console.log(waitData);
+    console.log(date);
     
     // 4. Filter data based on current date
     const filteredData = getFilteredData(date, waitData);
