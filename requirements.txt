@@ -34,6 +34,7 @@ gmaps==0.9.0
 greenlet==1.1.0
 gunicorn==20.1.0
 h11==0.13.0
+heroku==0.1.4
 holoviews==1.14.9
 html5lib==1.1
 hvplot==0.8.0
@@ -106,7 +107,7 @@ pyOpenSSL==22.0.0
 pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1649603503565/work
 pyrsistent @ file:///D:/bld/pyrsistent_1649013563648/work
 PySocks==1.7.1
-python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
+python-dateutil==2.8.1
 pytz==2021.1
 pyviz-comms==2.2.0
 pywin32==303
