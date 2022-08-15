@@ -70,4 +70,4 @@ Our top three results for influencing factors come in at a total of 39.8% weight
     https://www.touringplans.com/walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
 
 "metadata.csv", Disney World Ride Wait Time Datasets, TouringPlans.com, June 2018, 
-    https://www.touringplans.com/walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022.
+    https://www.touringplans.com/walt-disney-world/crowd-calendar/#DataSets, Accessed 5 July 2022. 
