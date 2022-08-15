@@ -32,6 +32,7 @@ flit_core @ file:///home/conda/feedstock_root/build_artifacts/flit-core_16456290
 geojson==2.5.0
 gmaps==0.9.0
 greenlet==1.1.0
+gunicorn==20.1.0
 h11==0.13.0
 holoviews==1.14.9
 html5lib==1.1

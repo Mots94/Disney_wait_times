@@ -169,18 +169,18 @@ function buildCharts(date) {
 
     // Create a Ride Bubble Chart
       
-    rideNameTwo = []
-    rideTimeTwo = []
+    // rideNameTwo = []
+    // rideTimeTwo = []
 
-    Object.entries(waitData).forEach(([key, value]) => {
-      observationsRideTwo = value.ride_name
-      observationsTimeTwo = value.sactmin
-      rideNameTwo.push(observationsRideTwo)
-      rideTimeTwo.push(observationsTimeTwo)
-    });
+    // Object.entries(waitData).forEach(([key, value]) => {
+    //   observationsRideTwo = value.ride_name
+    //   observationsTimeTwo = value.sactmin
+    //   rideNameTwo.push(observationsRideTwo)
+    //   rideTimeTwo.push(observationsTimeTwo)
+    // });
 
-    console.log(rideNameTwo); 
-    console.log(rideTimeTwo);
+    // console.log(rideNameTwo); 
+    // console.log(rideTimeTwo);
 
       // // Create the trace for the bubble chart.
       // const bubbleData = [
