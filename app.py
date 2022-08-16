@@ -43,4 +43,4 @@ def get_data():
     return jsonify(obs)
 
 if __name__ == "__main__":
-   app.run(port=8000)
+   app.run(port=45025)
