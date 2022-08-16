@@ -24,15 +24,15 @@ class CustomJSONEncoder(JSONEncoder):
         return JSONEncoder.default(self, obj)
 
 app = Flask(__name__, static_folder='static')
+
 app.json_encoder = CustomJSONEncoder
 
 # Use flask_pymongo to set up mongo connection
 app.config['MONGO_URI'] =  os.environ.get('MONGO_URI')
-# app.config['MONGO_URI'] = 'mongodb://localhost:27017/disney_db'
 
 # mongo = PyMongo(app)
 
-mongo = pymongo.MongoClient(os.environ.get('MONGO_URI'), tls=True, tlsAllowInvalidCertificates=True, ssl_cert_reqs=CERT_NONE)
+mongo = pymongo.MongoClient(os.environ.get('MONGO_URI'), tls=True, tlsAllowInvalidCertificates=True)
 
 @app.route("/")
 def home():
@@ -40,13 +40,12 @@ def home():
 
 @app.route("/landing")
 def landing():
-    return render_template("landing_page.html")
+    rides = get_data()
+    return render_template("landing_page.html", rides=rides)
 
 @app.route("/disney_json", methods=["GET"])
 def get_data():
     data=mongo.Disney_wait_times.rideTimes.find(projection = {"_id":False})
-    
-    # print(data)
     obs = [ride for ride in data]
     return jsonify(obs)
 
