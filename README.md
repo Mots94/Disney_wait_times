@@ -36,9 +36,9 @@ My outlier values had to be dropped within this loop to avoid calculating mean v
 ## Machine learning model
 We chose a Balanced Random Forest Classifier model to identify which feature of the dataset the wait time variable is most dependent on.
 
-*The average temperature for the day accounted for 14.5% of the weight dependency.
-*The day of the year accounted for 13.4%.
-*The percentage of schools in session across the US accounted for 11.9%.
+* The average temperature for the day accounted for 14.5% of the weight dependency.
+* The day of the year accounted for 13.4%.
+* The percentage of schools in session across the US accounted for 11.9%.
 
 ## Summary of Findings
 Our top three results for influencing factors come in at a total of 39.8% weight dependency. This means that there are over 60% of factors unaccounted for to be able to accurately predict future wait times in any fashion. Future investigation, if given access to propriety information, should include total park attendance by day as this seems to be the most likely factor that we were unable to take into account during our investigation. 
