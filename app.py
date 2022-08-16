@@ -32,7 +32,7 @@ app.config['MONGO_URI'] =  os.environ.get('MONGO_URI')
 
 # mongo = PyMongo(app)
 
-mongo = pymongo.MongoClient(os.environ.get('MONGO_URI'), tls=True, tlsAllowInvalidCertificates=True, ssl_cert_reqs=CERT_NONE)
+mongo = pymongo.MongoClient(os.environ.get('MONGO_URI'), tls=True, tlsAllowInvalidCertificates=True)
 
 @app.route("/")
 def home():
