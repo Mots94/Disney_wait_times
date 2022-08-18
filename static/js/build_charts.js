@@ -24,7 +24,8 @@ function getFilteredData(date, data) {
 function buildCharts(date) {
   
   // 2. Use d3.json to load and retrieve data source 
-  d3.json("http://localhost:45025/disney_json").then((data) => {
+  d3.json("https://disney-daily-final-project.herokuapp.com/disney_json").then((data) => {
+
  
     // 3. Create a variable that holds the array.
     // Write function to parse data (date string)
@@ -58,6 +59,7 @@ function buildCharts(date) {
       type: "bar",
       orientation: 'h',
       marker: {color: '#36052e'},
+
     }];
     
     // 8. Create the layout for the bar chart. 

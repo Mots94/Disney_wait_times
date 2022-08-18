@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Time of Magic: Evaluating the Wait Time Factors for the Magic Kingdom</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" src="../static/css/landing.css">
+</head>
+
+<body >
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center", style="background-image: url(static/images/magic_kingdom.jpeg); background-size: 100%"; height: 400px;> 
+        <h1 style = "color:rgb(51, 40, 86); font-family:arial, verdana, sans-serif">Time of Magic</h1>
+        <p style="color:rgb(51, 40, 86);"><b><u>Evaluating the Wait Time Factors for the Magic Kingdom</u></b></p>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <h3><u>Use the Filter Below to Interact with the Dataset</u></h3>
+      <p style=font-size:17px>
+      Select date from the calendar option.<br>
+      You will see the weather information impacting the ride wait times as well as the data on the wait times themselves.
+      <br><br>
+      </p>
+  </div>
+    <div class="row">
+      <div class="col-md-2 sticky">
+        <div class="well", style="background-color: #332856;">
+          <h5 style="color: white; font-size:16px;font-family:arial, verdana, sans-serif">Date:</h5>
+          <input type="date" id="dateSelect" onchange="getNewDate(this.value)" value="2015-01-01" min="2015-01-01" max="2020-12-31">
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div id="ride_bar"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5">
+        <div id="precip_gauge"></div>
+      </div>
+      <div class="col-md-5">
+        <div id="temp_gauge"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="{{url_for('static',filename='js/merged_data.json')}}"></script>
+  <script src="{{url_for('static',filename='js/build_charts.js')}}"></script>
+
+
+</body>
+
+</html>
