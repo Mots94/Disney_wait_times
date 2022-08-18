@@ -25,6 +25,7 @@ function buildCharts(date) {
   
   // 2. Use d3.json to load and retrieve data source 
   d3.json("https://disney-daily-final-project.herokuapp.com/disney_json").then((data) => {
+
  
     // 3. Create a variable that holds the array.
     // Write function to parse data (date string)
@@ -57,7 +58,8 @@ function buildCharts(date) {
       y: xticks,
       type: "bar",
       orientation: 'h',
-      marker: {color: '#332856'},
+      marker: {color: '#36052e'},
+
     }];
     
     // 8. Create the layout for the bar chart. 
@@ -70,16 +72,18 @@ function buildCharts(date) {
         },
       },
       xaxis: {
-        title: "Wait Time (Minutes)"
+        title: "<b>Wait Time (Minutes)</b>"
       },
       yaxis: {
-        title: "Ride Name"
+        title: "<b>Ride Name</b>"
       },
       margin: {
         l: 150,
-        t: 30,
-        
-      }
+        t: 30, 
+      },
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)"
+
     };
     
     // 10. Use Plotly to plot the data with the layout. 
@@ -99,7 +103,7 @@ function buildCharts(date) {
     // 2. Create the trace for the gauge chart.
       var gaugeData = [
       {
-        title: { text: "<b>Precipitation Amount</b>" },
+        title: { text: "<b>Precipitation Amount (Inches)</b>" },
         value: precipDay,
         type: "indicator",
         mode: "gauge+number",
@@ -121,7 +125,11 @@ function buildCharts(date) {
       var gaugeLayout = { 
              width: 500, 
              height: 425, 
-             margin: { t: 0, b: 0 } };
+             margin: { t: 0, b: 0 },
+             paper_bgcolor: "rgba(0,0,0,0)",
+             plot_bgcolor: "rgba(0,0,0,0)" 
+            
+            };
       
     // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("precip_gauge", gaugeData, gaugeLayout);
@@ -140,7 +148,7 @@ function buildCharts(date) {
     // 4. Create the trace for the gauge chart.
     var gaugeData2 = [
     {
-      title: { text: "<b>Average Temperature</b>" },
+      title: { text: "<b>Average Temperature (Fahrenheit)</b>" },
       value: tempDay,
       type: "indicator",
       mode: "gauge+number",
@@ -162,7 +170,10 @@ function buildCharts(date) {
     var gaugeLayout = { 
           width: 500, 
           height: 425, 
-          margin: { t: 0, b: 0 } };
+          margin: { t: 0, b: 0 }, 
+          paper_bgcolor: "rgba(0,0,0,0)",
+          plot_bgcolor: "rgba(0,0,0,0)"        
+        };
     
     // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("temp_gauge", gaugeData2, gaugeLayout);

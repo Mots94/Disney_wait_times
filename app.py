@@ -20,6 +20,7 @@ class CustomJSONEncoder(JSONEncoder):
         return JSONEncoder.default(self, obj)
 
 app = Flask(__name__, static_folder='static')
+
 app.json_encoder = CustomJSONEncoder
 
 # Use flask_pymongo to set up mongo connection
@@ -44,3 +45,4 @@ def get_data():
 
 if __name__ == "__main__":
    app.run(port=45025)
+

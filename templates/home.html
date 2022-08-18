@@ -10,18 +10,19 @@
 </head>
 
 <body>
-  <div class="container" id="header">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h1>Magic Kingdom Wait Times</h1>
-        <h3>The Time of Magic Awaits</h3>
-      </div>
+  <section>
+    <div class="col-md-12 text-center">
+      <h1>Magic Kingdom Wait Times</h1>
+      <h3>The Time of Magic Awaits</h3>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <button id="homeButton" class="lrg-btn">Enter Here</button>
+  </section>
+  <section class="gif-container">
+    <iframe src="https://giphy.com/embed/d8SMqAtm3D9bYfOtcs" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  </section>
+  <section>
+    <div class="col-md-12 text-center">
+      <div class="btn-container">
+        <a href="/landing" class="btn" :before>Enter Here</a>
         <script type="text/javascript">
           document.getElementById("homeButton").onclick = function() {
             location.href = "/landing"
@@ -29,6 +30,6 @@
         </script>
       </div>
     </div>
-  </div>
+  </section>
 </body>
 </html>
