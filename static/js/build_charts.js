@@ -70,10 +70,10 @@ function buildCharts(date) {
         },
       },
       xaxis: {
-        title: "Wait Time (Minutes)"
+        title: "<b>Wait Time (Minutes)</b>"
       },
       yaxis: {
-        title: "Ride Name"
+        title: "<b>Ride Name</b>"
       },
       margin: {
         l: 150,
@@ -101,7 +101,7 @@ function buildCharts(date) {
     // 2. Create the trace for the gauge chart.
       var gaugeData = [
       {
-        title: { text: "<b>Precipitation Amount</b>" },
+        title: { text: "<b>Precipitation Amount (Inches)</b>" },
         value: precipDay,
         type: "indicator",
         mode: "gauge+number",
@@ -146,7 +146,7 @@ function buildCharts(date) {
     // 4. Create the trace for the gauge chart.
     var gaugeData2 = [
     {
-      title: { text: "<b>Average Temperature</b>" },
+      title: { text: "<b>Average Temperature (Fahrenheit)</b>" },
       value: tempDay,
       type: "indicator",
       mode: "gauge+number",
