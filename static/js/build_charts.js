@@ -57,7 +57,7 @@ function buildCharts(date) {
       y: xticks,
       type: "bar",
       orientation: 'h',
-      marker: {color: '#17becf'},
+      marker: {color: '#332856'},
     }];
     
     // 8. Create the layout for the bar chart. 
