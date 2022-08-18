@@ -7,11 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Time of Magic: Evaluating the Wait Time Factors for the Magic Kingdom</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Custom styles for this template -->
-  <link rel="stylesheet" src="../static/css/landing.css">
+  <link rel="stylesheet" href="../static/css/landing.css">
 </head>
 
-<body >
+<body>
 
   <div class="container">
     <div class="row">
@@ -23,8 +22,8 @@
     <div class="col-md-12">
       <h3><u>Use the Filter Below to Interact with the Dataset</u></h3>
       <p style=font-size:17px>
-      Select date from the calendar option.<br>
-      You will see the weather information, ride wait times, and relative time to holiday.
+      Select a date from the calendar options.<br>
+      You will see the weather information impacting the ride wait times as well as the data on the wait times themselves.
       <br><br>
       </p>
   </div>
@@ -34,15 +33,9 @@
           <h5 style="color: white; font-size:16px;font-family:arial, verdana, sans-serif">Date:</h5>
           <input type="date" id="dateSelect" onchange="getNewDate(this.value)" value="2015-01-01" min="2015-01-01" max="2020-12-31">
         </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading" style="background-color: #36052e;">
-            <h3 class="panel-title" style="font-family:arial, verdana, sans-serif">Relevant Factors</h3>
-          </div>
-          <div id="ride-meta" class="panel-body"></div>
-        </div>
       </div>
       <div class="col-md-10">
-        <div id="ride_bar"></div>
+        <div id="ride_bar" class="chart-colors"></div>
       </div>
     </div>
     <div class="row">

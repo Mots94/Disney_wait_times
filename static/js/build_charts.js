@@ -57,7 +57,7 @@ function buildCharts(date) {
       y: xticks,
       type: "bar",
       orientation: 'h',
-      marker: {color: '#17becf'},
+      marker: {color: '#36052e'},
     }];
     
     // 8. Create the layout for the bar chart. 
@@ -77,9 +77,11 @@ function buildCharts(date) {
       },
       margin: {
         l: 150,
-        t: 30,
-        
-      }
+        t: 30, 
+      },
+      paper_bgcolor: "rgba(0,0,0,0)",
+      plot_bgcolor: "rgba(0,0,0,0)"
+
     };
     
     // 10. Use Plotly to plot the data with the layout. 
@@ -121,7 +123,11 @@ function buildCharts(date) {
       var gaugeLayout = { 
              width: 500, 
              height: 425, 
-             margin: { t: 0, b: 0 } };
+             margin: { t: 0, b: 0 },
+             paper_bgcolor: "rgba(0,0,0,0)",
+             plot_bgcolor: "rgba(0,0,0,0)" 
+            
+            };
       
     // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("precip_gauge", gaugeData, gaugeLayout);
@@ -162,7 +168,10 @@ function buildCharts(date) {
     var gaugeLayout = { 
           width: 500, 
           height: 425, 
-          margin: { t: 0, b: 0 } };
+          margin: { t: 0, b: 0 }, 
+          paper_bgcolor: "rgba(0,0,0,0)",
+          plot_bgcolor: "rgba(0,0,0,0)"        
+        };
     
     // 6. Use Plotly to plot the gauge data and layout.
     Plotly.newPlot("temp_gauge", gaugeData2, gaugeLayout);

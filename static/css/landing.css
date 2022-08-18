@@ -2,3 +2,11 @@ div.sticky {
     position: sticky;
     top: 0;
 }
+
+body {
+    background-color: #F3CC64;
+}
+
+.chart-colors {
+    background-color: #F3CC64;
+}
