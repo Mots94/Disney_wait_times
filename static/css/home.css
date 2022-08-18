@@ -1,13 +1,19 @@
-button {
-    margin: 0;
-    position: absolute;
-    top: 350px;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    background-color: darkslateblue;
-    color: bisque;
-    font-size: large ;
+body {
+    background-color: #F3CC64;
+}
+
+h1 {
+    margin: 50px 0;
+    font-family: 'Indie Flower', cursive;
+    font-weight: normal;
+    text-align: center;
+  }
+
+h3 {
+margin: 50px 0;
+font-family: 'Indie Flower', cursive;
+font-weight: normal;
+text-align: center;
 }
 
 .disney-img {
@@ -29,16 +35,19 @@ button {
 
 
 .btn-container{
+  margin: 0;
   position: absolute;
+  top: 250px;
   left: 50%;
-  margin: 0 0 100px -150px;
+  -ms-transform: translate(-50%, 100%);
+    transform: translate(-50%, 100%);
 }
 
 .btn{
 	width: 300px;
 	height: 50px;
 	line-height: 50px;	
-	background-color: #FF6138;
+	background-color: #393E8F;
   border-radius: 8px;
 	color: #fff;
   font-family: 'Indie Flower', cursive;
@@ -71,7 +80,8 @@ button {
   animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
-  &:before{
+}
+a::before{
   	pointer-events: none;
     position: absolute;
     z-index: -1;
@@ -103,11 +113,9 @@ button {
     animation-iteration-count: infinite;
     -webkit-animation-direction: alternate;
     animation-direction: alternate;
-  }
-    &:hover{
-        background-color: #e16e50;
     }
-}
+   
+
 
 @keyframes hover {
   50% {

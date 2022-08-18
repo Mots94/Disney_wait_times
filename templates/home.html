@@ -9,22 +9,22 @@
     <link rel="stylesheet" href="../static/css/home.css">
 </head>
 
-<body class="disney-img" data-image-width="3840" data-image-height="2160">
+<body>
   <section>
-      <div class="col-md-12 text-center">
-        <h1>Magic Kingdom Wait Times</h1>
-        <h3>The Time of Magic Awaits</h3>
-      </div>
+    <div class="col-md-12 text-center">
+      <h1>Magic Kingdom Wait Times</h1>
+      <h3>The Time of Magic Awaits</h3>
     </div>
-      <div class="col-md-12 text-center">
-        <div class="btn-container">
-          <a href="/landing" class="btn">Enter Here</a>
-          <script type="text/javascript">
-            document.getElementById("homeButton").onclick = function() {
-              location.href = "/landing"
-            }
-          </script>
-        </div>
+  </section>
+  <section>
+    <div class="col-md-12 text-center">
+      <div class="btn-container">
+        <a href="/landing" class="btn" :before>Enter Here</a>
+        <script type="text/javascript">
+          document.getElementById("homeButton").onclick = function() {
+            location.href = "/landing"
+          }
+        </script>
       </div>
     </div>
   </section>
